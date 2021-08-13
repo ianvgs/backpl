@@ -29,4 +29,9 @@ module.exports = app => {
     Crud.delprod(req,res)
   })
 
+
+  app.get('/',  async (req, res) => {    
+    res.send('VOcê está acessando a rota "/" do backend do projeto PL.')
+  })
+
 }
