@@ -8,8 +8,6 @@ class Crud {
 
     async registrar(req, res) {
 
-
-
         console.log(req.body)
         if (req.body.senha !== req.body.confirmaSenha) {
            return res.status(200).json({erro: "Os passwords não coincidem." })
@@ -51,9 +49,7 @@ class Crud {
          return   res.json({erro:"Email não encontrado"})
         }  
         if(resultados) {
-
             bcrypt.compare(senha, resultados.dataValues.senha, async (erro, result) => {
-
                 if (erro) {
                    return res.status(400).json(erro)                                      
                 }
@@ -89,8 +85,7 @@ class Crud {
             return res.status(200).json({resultados, message:'Produto Cadastrado com sucesso'})
         }).catch(()=>{
             return res.status(200).json({erro:'Os campos nome e descrição devem conter somente letras, e o campo quantidade e valor apenas numeros inteiros.'})
-        })
-        
+        })        
     }
 
     async altprod(req,res){      
